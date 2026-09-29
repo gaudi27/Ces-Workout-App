@@ -378,15 +378,22 @@ if(!S.tab || !S.done[S.tab] || !Object.keys(S.done[S.tab]).length){
 
 // ---- mascot
 const mochi = $("mochi"), bubble = $("bubble"), heartPop = $("heartPop");
+let petTimer=null;
 function say(t, anim="hop"){
   bubble.textContent = t; bubble.classList.remove("pop"); void bubble.offsetWidth; bubble.classList.add("pop");
   mochi.classList.remove("hop","cheer"); void mochi.offsetWidth; mochi.classList.add(anim);
 }
 function sleepy(on){ $("bowieAwake").hidden=on; $("bowieSleep").hidden=!on; $("zzz").hidden=!on; }
 function petBowie(){
-  heartPop.hidden=false; heartPop.classList.remove("pet-pop"); void heartPop.offsetWidth; heartPop.classList.add("pet-pop");
+  clearTimeout(petTimer);
+  heartPop.hidden=false;
+  heartPop.querySelectorAll("b").forEach(heart=>{
+    heart.style.animation="none";
+    void heart.offsetWidth;
+    heart.style.animation="";
+  });
   say(pick(["Aww, hi!","Good pets!","Love you too!"]));
-  setTimeout(()=>{ heartPop.hidden=true; },1200);
+  petTimer=setTimeout(()=>{ heartPop.hidden=true; },1200);
 }
 mochi.addEventListener("click",petBowie);
 mochi.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); petBowie(); }});
