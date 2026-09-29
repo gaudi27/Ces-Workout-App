@@ -318,15 +318,15 @@ const ROUTINE = {
 };
 const PICKS = {
   quad:["Leg press","Squat","Leg extension","Split squat"],
-  ham:["RDL","Leg curl","Good morning"],
-  glute:["Hip thrust","Glute bridge","Kickback","Abduction"]
+  ham:["RDL","Leg curl", "Lying leg curl"],
+  glute:["Hip thrust","Kickback","Hip abductor"]
 };
 const REPS = "8–10 reps";
 const LINES = {
   set:["Nice one!","Strong!","Rest up, you earned it","Ooh, look at you go","Good form!","Keep it cozy, keep it strong"],
   go:["Next set!","Time's up, let's go!","Back to it!"],
   cardio:["Cardio logged! ♡","Heart go brrr","Zoom zoom!"],
-  done:["Workout saved! So proud","You did it!! ♡","Another one in the book!"]
+  done:["Workout saved! So proud","You did it!! ♡","Good Job Human!", "Bowie so proud!!"]
 };
 const pick = a => a[Math.floor(Math.random()*a.length)];
 const $ = id => document.getElementById(id);
@@ -736,9 +736,9 @@ CRITTERS.forEach(c=>{ c.img=new Image(); c.img.src="data:image/svg+xml;charset=u
 const COMPLIMENTS = [
   "You're so strong!!","Look at those gains!","Perfect form, wow","Queen of the gym ♡","Stronger than yesterday!",
   "You make this look easy","That set was elite","Main character energy","Absolute powerhouse","Your glutes say thank you",
-  "Pretty AND strong? Unfair","Legendary set!","You're glowing ✧","Future you says thanks","10/10 set, no notes",
+  "Pretty AND strong? Unfair","Legendary set!","You're glowing ✧","10/10 set, no notes",
   "Built different","Critical hit! +10 STR","New high score!","You're doing amazing ♡","So proud of you!!",
-  "Unstoppable!","Muscles loading…","Cutest lifter ever","That was so clean!","Boss level unlocked"
+  "Unstoppable!","Muscles loading…","Cutest lifter ever","That was so clean!","grdi loves you sooooo much"
 ];
 const TAGS = ["SET CLEAR!","NICE COMBO!","+EXP","LEVEL UP?","PERFECT!"];
 let lastC = -1, cheerTimers = [];
