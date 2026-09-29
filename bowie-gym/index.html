@@ -82,6 +82,29 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--honey);outline-
 .lvcard small{font-family:var(--f-display);font-weight:600;font-size:13px;color:var(--muted)}
 .lvcard b{font-family:var(--f-display);font-size:15px;color:var(--ink);font-variant-numeric:tabular-nums}
 .lvcard b em{font-style:normal;color:var(--honey)}
+.outfit-btn{display:flex;align-items:center;gap:6px;width:100%;border:2px solid var(--leaf-deep);border-radius:9px;padding:5px 7px;background:var(--leaf-soft);color:var(--leaf-deep);font-family:var(--f-display);font-weight:700;font-size:11px;text-align:left;box-shadow:0 2px 0 var(--leaf-deep);transition:transform .08s,background .15s}
+.outfit-btn:hover{background:var(--honey-soft)}
+.outfit-btn:active{transform:translateY(2px);box-shadow:0 0 0 var(--leaf-deep)}
+.outfit-btn:focus-visible{outline:2px solid var(--honey);outline-offset:2px}
+.outfit-swatch-mini{width:18px;height:18px;flex:none;border:2px solid rgba(61,42,31,.25);border-radius:6px;background:linear-gradient(135deg,var(--outfit-light),var(--outfit-mid) 55%,var(--outfit-dark))}
+.outfit-copy{display:flex;flex-direction:column;min-width:0;line-height:1.05}
+.outfit-copy small{font-size:9px;letter-spacing:.04em;text-transform:uppercase;opacity:.75}
+.outfit-copy span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.outfit-arrow{margin-left:auto;font-size:16px;line-height:1}
+.outfit-sheet{position:fixed;inset:0;z-index:30;display:grid;place-items:end center;padding:16px;background:rgba(61,42,31,.32)}
+.outfit-sheet[hidden]{display:none}
+.outfit-panel{width:min(100%,480px);background:var(--panel);border:3px solid var(--edge);border-radius:22px;box-shadow:0 8px 0 var(--edge);padding:16px;animation:up .25s ease}
+.outfit-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.outfit-head h2{font-size:20px}
+.outfit-close{border:0;background:var(--panel-2);border-radius:10px;padding:6px 10px;font-weight:700}
+.outfits{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.outfit-option{position:relative;border:2px solid var(--edge);border-radius:14px;background:var(--panel-2);padding:10px;text-align:left;display:flex;flex-direction:column;gap:6px}
+.outfit-option[aria-pressed="true"]{border-color:var(--honey);box-shadow:inset 0 0 0 2px var(--honey-soft)}
+.outfit-option:disabled{cursor:not-allowed;opacity:.58}
+.outfit-swatch{height:28px;border-radius:8px;background:linear-gradient(135deg,var(--outfit-light),var(--outfit-mid) 55%,var(--outfit-dark));border:2px solid rgba(61,42,31,.2)}
+.outfit-option b{font-family:var(--f-display);font-size:14px}
+.outfit-option small{color:var(--muted);font-size:11px}
+.outfit-check{position:absolute;top:8px;right:8px;color:var(--honey);font-weight:800}
 
 .bubble{position:absolute;right:12px;top:14px;z-index:2;max-width:150px;background:var(--panel);border:3px solid var(--edge);border-radius:16px;padding:7px 10px;font-family:var(--f-display);font-weight:600;font-size:13.5px;line-height:1.25}
 .bubble::after{content:"";position:absolute;left:22px;bottom:-10px;border:8px solid transparent;border-top-color:var(--edge);border-bottom:0}
@@ -90,6 +113,7 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--honey);outline-
 .stage{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);width:190px;height:190px;display:grid;place-items:end center}
 .rug{position:absolute;bottom:0;width:190px;height:54px;border-radius:50%;border:3px dashed var(--honey);opacity:.6}
 .mochi{position:relative;width:156px;height:168px;animation:breathe 3.2s ease-in-out infinite;transform-origin:50% 100%}
+.mochi[role="button"]{cursor:pointer}
 .mochi canvas{display:block;width:156px;height:168px;image-rendering:pixelated;image-rendering:crisp-edges}
 .mochi.hop{animation:hop .6s ease}
 .mochi.cheer{animation:cheer 1s ease 2}
@@ -100,6 +124,11 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--honey);outline-
 .zzz b:nth-child(2){font-size:19px;animation-delay:.8s}
 .zzz b:nth-child(3){font-size:25px;animation-delay:1.6s}
 @keyframes floatZ{0%{transform:translate(0,0) rotate(-8deg) scale(.6);opacity:0}15%{opacity:1}100%{transform:translate(34px,-64px) rotate(12deg) scale(1.1);opacity:0}}
+.heart-pop{position:absolute;top:44px;left:50%;width:0;height:0;z-index:2;pointer-events:none}
+.heart-pop b{position:absolute;left:0;bottom:0;color:var(--blush);font-family:var(--f-display);font-size:22px;line-height:1;text-shadow:2px 2px 0 var(--panel);animation:heartFloat 1.1s ease-out both}
+.heart-pop b:nth-child(2){font-size:28px;animation-delay:.12s}
+.heart-pop b:nth-child(3){font-size:18px;animation-delay:.24s}
+@keyframes heartFloat{0%{transform:translate(0,0) scale(.4);opacity:0}18%{opacity:1}100%{transform:translate(-30px,-72px) scale(1.1);opacity:0}}
 
 @keyframes breathe{50%{transform:scale(1.03,.97)}}
 @keyframes hop{30%{transform:translateY(-22px) scale(.95,1.06)}60%{transform:translateY(0) scale(1.08,.92)}}
@@ -109,6 +138,8 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--honey);outline-
 /* ---------- Week ---------- */
 .card{background:var(--panel);border:3px solid var(--edge);border-radius:20px;box-shadow:0 5px 0 var(--edge);padding:14px}
 .week-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:10px}
+.week-meta{display:flex;flex-direction:column;align-items:flex-end;gap:3px}
+.streak{font-family:var(--f-display);font-weight:700;font-size:13px;color:var(--honey)}
 h2{font-family:var(--f-display);font-weight:700;font-size:18px;margin:0}
 .label{font-family:var(--f-pixel);font-size:11px;letter-spacing:.04em;color:var(--muted);text-transform:uppercase}
 .days{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
@@ -128,6 +159,7 @@ h2{font-family:var(--f-display);font-weight:700;font-size:18px;margin:0}
 .btn:active{transform:translateY(3px);box-shadow:inset 0 3px 0 rgba(255,255,255,.35),0 1px 0 var(--leaf-deep)}
 .btn.soft{background:var(--panel-2);color:var(--ink);box-shadow:inset 0 3px 0 rgba(255,255,255,.2),0 4px 0 var(--edge)}
 .btn.soft:active{box-shadow:0 1px 0 var(--edge)}
+.btn:disabled{opacity:.55;cursor:not-allowed;box-shadow:inset 0 3px 0 rgba(255,255,255,.2),0 2px 0 var(--edge)}
 .hint{font-size:12.5px;color:var(--muted);margin:8px 0 0}
 
 /* ---------- Tabs ---------- */
@@ -145,10 +177,12 @@ h2{font-family:var(--f-display);font-weight:700;font-size:18px;margin:0}
 .ex-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
 .ex h3{font-family:var(--f-display);font-weight:600;font-size:17px;margin:0;line-height:1.2}
 .ex .scheme{font-family:var(--f-pixel);font-size:11px;color:var(--muted);margin-top:3px}
+.wt-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0}
 .wt{display:flex;align-items:center;gap:4px;background:var(--panel);border:2px solid var(--edge);border-radius:10px;padding:3px 8px;flex-shrink:0}
 .wt input{width:44px;border:0;background:transparent;font-family:var(--f-display);font-weight:600;font-size:16px;color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
 .wt input::placeholder{color:var(--muted);opacity:.6}
 .wt span{font-size:12px;color:var(--muted)}
+.last{border:0;padding:0;background:transparent;color:var(--muted);font:inherit;font-size:11px;font-variant-numeric:tabular-nums;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{border:2px solid var(--edge);background:var(--panel);border-radius:99px;padding:4px 10px;font-size:13px;font-weight:700}
 .chip[aria-pressed="true"]{background:var(--wood);border-color:var(--wood);color:var(--on-wood)}
@@ -206,14 +240,16 @@ h2{font-family:var(--f-display);font-weight:700;font-size:18px;margin:0}
       <div class="lvrow"><span class="lv" id="lv">LV.1</span><div class="bar"><i id="lvbar" style="width:0%"></i></div></div>
       <small>Today EXP</small>
       <b><em id="exp">0</em>/100</b>
+      <button class="outfit-btn" id="outfitBtn" type="button" aria-label="Customize Bowie's outfit"><span class="outfit-swatch-mini" id="outfitSwatch"></span><span class="outfit-copy"><small>Outfit</small><span id="outfitName">Classic band</span></span><span class="outfit-arrow" aria-hidden="true">›</span></button>
     </div>
 
     <div class="bubble" id="bubble">Hi! Ready to lift?</div>
 
     <div class="stage">
       <div class="rug"></div>
-      <div class="mochi" id="mochi">
+      <div class="mochi" id="mochi" role="button" tabindex="0" aria-label="Pet Bowie">
         <span class="zzz" id="zzz" hidden aria-hidden="true"><b>z</b><b>z</b><b>Z</b></span>
+        <span class="heart-pop" id="heartPop" hidden aria-hidden="true"><b>♡</b><b>♥</b><b>♡</b></span>
         <canvas id="bowieAwake" width="78" height="84" role="img" aria-label="Bowie the Tibetan terrier"></canvas>
         <canvas id="bowieSleep" width="78" height="84" hidden aria-hidden="true"></canvas>
       </div>
@@ -221,13 +257,13 @@ h2{font-family:var(--f-display);font-weight:700;font-size:18px;margin:0}
   </section>
 
   <section class="card" aria-labelledby="wk">
-    <div class="week-head"><h2 id="wk">This week</h2><span class="label" id="weekRange"></span></div>
+    <div class="week-head"><h2 id="wk">This week</h2><div class="week-meta"><span class="label" id="weekRange"></span><span class="streak" id="streak"></span></div></div>
     <div class="days" id="days"></div>
     <div class="cardio-row">
       <div class="pips" id="pips" aria-label="Cardio this week"></div>
       <button class="btn soft" id="cardioBtn" type="button">+ Cardio today</button>
     </div>
-    <p class="hint">Goal: cardio 4–5 times a week. Tap any day to add or remove cardio.</p>
+    <p class="hint" id="weekHint">Goal: 2 lift days + 4 cardio sessions.</p>
   </section>
 
   <div>
@@ -237,6 +273,13 @@ h2{font-family:var(--f-display);font-weight:700;font-size:18px;margin:0}
 </div>
 
 <div class="cheer-layer" id="cheerLayer" aria-live="polite"></div>
+
+<div class="outfit-sheet" id="outfitSheet" hidden>
+  <section class="outfit-panel" role="dialog" aria-modal="true" aria-labelledby="outfitTitle">
+    <div class="outfit-head"><h2 id="outfitTitle">Bowie's outfits</h2><button class="outfit-close" id="outfitClose" type="button" aria-label="Close outfit customization">Close</button></div>
+    <div class="outfits" id="outfits"></div>
+  </section>
+</div>
 
 <div class="timer" id="timer" hidden>
   <div class="sheet" role="timer" aria-live="polite">
@@ -297,10 +340,35 @@ const WEEK = [...Array(7)].map((_,i)=>{const d=new Date(monday);d.setDate(monday
 
 // ---- state
 const SKEY = "mochi-gym-v1";
-let S = {date:TODAY,done:{d1:{},d2:{}},w:{},pick:{},cardio:[],lifts:{},total:0,rest:90,tab:null};
-try{ const raw = localStorage.getItem(SKEY); if(raw) S = Object.assign(S, JSON.parse(raw)); }catch(e){}
+let S = {date:TODAY,done:{d1:{},d2:{}},w:{},last:{},pick:{},cardio:[],lifts:{},total:0,rest:90,tab:null,outfit:0};
+try{
+  const raw = localStorage.getItem(SKEY);
+  if(raw){
+    const saved = JSON.parse(raw);
+    if(saved && typeof saved === "object") S = Object.assign(S, saved);
+  }
+  if(!S.done || typeof S.done !== "object") S.done={};
+  if(!S.done.d1 || typeof S.done.d1 !== "object") S.done.d1={};
+  if(!S.done.d2 || typeof S.done.d2 !== "object") S.done.d2={};
+  if(!S.w || typeof S.w !== "object") S.w={};
+  if(!S.last || typeof S.last !== "object") S.last={};
+  if(!S.pick || typeof S.pick !== "object") S.pick={};
+  if(!Array.isArray(S.cardio)) S.cardio=[];
+  if(!S.lifts || typeof S.lifts !== "object") S.lifts={};
+  if(!Number.isFinite(S.rest) || S.rest<=0) S.rest=90;
+  if(!Number.isInteger(S.outfit) || S.outfit<0) S.outfit=0;
+}catch(e){}
 if(S.date!==TODAY){ S.date=TODAY; S.done={d1:{},d2:{}}; }
 const save = () => { try{ localStorage.setItem(SKEY, JSON.stringify(S)); }catch(e){} };
+
+const OUTFITS = [
+  {level:1,name:"Classic band",light:"#c8e6a8",mid:"#86b563",dark:"#4e7936"},
+  {level:2,name:"Sunset band",light:"#ffd39a",mid:"#f3a451",dark:"#bb6329"},
+  {level:3,name:"Berry band",light:"#f6b9d0",mid:"#d96b9a",dark:"#8e3d67"},
+  {level:4,name:"Sky band",light:"#c4e8f5",mid:"#70b8d2",dark:"#3d789b"}
+];
+const unlockedOutfits = () => OUTFITS.filter(o=>o.level<=Math.floor(S.total/3)+1);
+const activeOutfit = () => { const unlocked=unlockedOutfits(); return unlocked[Math.min(S.outfit,unlocked.length-1)]; };
 
 // pick today's day: continue whatever's in progress, else alternate from last lift
 if(!S.tab || !S.done[S.tab] || !Object.keys(S.done[S.tab]).length){
@@ -309,17 +377,24 @@ if(!S.tab || !S.done[S.tab] || !Object.keys(S.done[S.tab]).length){
 }
 
 // ---- mascot
-const mochi = $("mochi"), bubble = $("bubble");
+const mochi = $("mochi"), bubble = $("bubble"), heartPop = $("heartPop");
 function say(t, anim="hop"){
   bubble.textContent = t; bubble.classList.remove("pop"); void bubble.offsetWidth; bubble.classList.add("pop");
   mochi.classList.remove("hop","cheer"); void mochi.offsetWidth; mochi.classList.add(anim);
 }
 function sleepy(on){ $("bowieAwake").hidden=on; $("bowieSleep").hidden=!on; $("zzz").hidden=!on; }
+function petBowie(){
+  heartPop.hidden=false; heartPop.classList.remove("pet-pop"); void heartPop.offsetWidth; heartPop.classList.add("pet-pop");
+  say(pick(["Aww, hi!","Good pets!","Love you too!"]));
+  setTimeout(()=>{ heartPop.hidden=true; },1200);
+}
+mochi.addEventListener("click",petBowie);
+mochi.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); petBowie(); }});
 
 // ---- Bowie sprite: painted as a shaded SVG, then crunched to a tiny low-res texture
 function mulberry(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
 function bowieSVG(asleep){
-  const r = mulberry(7), R=(a,b)=>a+r()*(b-a), P=a=>a[Math.floor(r()*a.length)];
+  const r = mulberry(7), R=(a,b)=>a+r()*(b-a), P=a=>a[Math.floor(r()*a.length)], outfit=activeOutfit();
   const strand=(x,y,dx,dy,c,w,o)=>`<path d="M${x.toFixed(1)} ${y.toFixed(1)}q${(dx*.5+R(-2,2)).toFixed(1)} ${(dy*.5).toFixed(1)} ${dx.toFixed(1)} ${dy.toFixed(1)}" stroke="${c}" stroke-width="${w}" opacity="${o}" fill="none" stroke-linecap="round"/>`;
   const many=(n,f)=>Array.from({length:n},f).join("");
   const FUR=["#f3e3c4","#dcc298","#c4a778","#9c7c52"], FACE=["#fffaf0","#f2e8d6","#e2d2b6"], EAR=["#b8875a","#8f633d","#6f4b2c","#c99a68"], TAIL=["#b07a4c","#7e5334","#5c3a23"];
@@ -335,7 +410,7 @@ function bowieSVG(asleep){
     <linearGradient id="legG" x1="0" x2="1"><stop offset="0" stop-color="#b9996b"/><stop offset=".4" stop-color="#e6d0a8"/><stop offset="1" stop-color="#a8885c"/></linearGradient>
     <linearGradient id="earG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c29363"/><stop offset=".6" stop-color="#8f633d"/><stop offset="1" stop-color="#5e3f25"/></linearGradient>
     <radialGradient id="tailG" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#b98253"/><stop offset=".6" stop-color="#7e5334"/><stop offset="1" stop-color="#4a2f1c"/></radialGradient>
-    <linearGradient id="bandG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c8e6a8"/><stop offset=".5" stop-color="#86b563"/><stop offset="1" stop-color="#4e7936"/></linearGradient>
+    <linearGradient id="bandG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${outfit.light}"/><stop offset=".5" stop-color="${outfit.mid}"/><stop offset="1" stop-color="${outfit.dark}"/></linearGradient>
     <radialGradient id="eyeG" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#4a342a"/><stop offset="1" stop-color="#0b0806"/></radialGradient>
     <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef0f4"/><stop offset=".5" stop-color="#9a9ca6"/><stop offset="1" stop-color="#55575f"/></linearGradient>
     <linearGradient id="plate" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6c86c4"/><stop offset=".5" stop-color="#3f5796"/><stop offset="1" stop-color="#26355e"/></linearGradient>
@@ -398,6 +473,7 @@ function paintBowie(canvas, asleep){
 paintBowie($("bowieAwake"),false); paintBowie($("bowieSleep"),true);
 
 // ---- EXP / level
+let renderedOutfit="";
 function totals(){
   const r = ROUTINE[S.tab]; let all=0, done=0;
   r.ex.forEach(e=>{ all+=e.sets; done+=(S.done[S.tab][e.id]||[]).filter(Boolean).length; });
@@ -409,13 +485,64 @@ function renderExp(){
   $("exp").textContent = exp;
   const lvl = Math.floor(S.total/3)+1, prog = (S.total%3)/3*100;
   $("lv").textContent = "LV."+lvl; $("lvbar").style.width = (prog||(S.total?4:0))+"%";
+  const outfit=activeOutfit();
+  $("outfitName").textContent=outfit.name;
+  $("outfitSwatch").style.setProperty("--outfit-light",outfit.light);
+  $("outfitSwatch").style.setProperty("--outfit-mid",outfit.mid);
+  $("outfitSwatch").style.setProperty("--outfit-dark",outfit.dark);
+  if(outfit.name!==renderedOutfit){ paintBowie($("bowieAwake"),false); paintBowie($("bowieSleep"),true); renderedOutfit=outfit.name; }
 }
+function renderOutfits(){
+  const unlocked=unlockedOutfits(), active=activeOutfit();
+  $("outfits").innerHTML=OUTFITS.map((outfit,index)=>{
+    const open=outfit.level<=unlocked.length, selected=open&&outfit.name===active.name;
+    return `<button type="button" class="outfit-option" data-outfit="${index}" aria-pressed="${selected}"${open?"":" disabled"} style="--outfit-light:${outfit.light};--outfit-mid:${outfit.mid};--outfit-dark:${outfit.dark}">
+      <span class="outfit-swatch"></span><b>${outfit.name}</b><small>${open?`Level ${outfit.level}${selected?" · Wearing":""}`:`Unlocks at LV.${outfit.level}`}</small>${selected?'<span class="outfit-check">✓</span>':""}
+    </button>`;
+  }).join("");
+}
+function openOutfits(){ $("outfitSheet").hidden=false; renderOutfits(); $("outfitClose").focus(); }
+function closeOutfits(){ $("outfitSheet").hidden=true; $("outfitBtn").focus(); }
+$("outfitBtn").addEventListener("click",()=>{
+  openOutfits();
+});
+$("outfitClose").addEventListener("click",closeOutfits);
+$("outfitSheet").addEventListener("click",e=>{
+  if(e.target===$("outfitSheet")){ closeOutfits(); return; }
+  const option=e.target.closest("[data-outfit]"); if(!option) return;
+  const unlocked=unlockedOutfits(), index=+option.dataset.outfit;
+  if(index>=unlocked.length) return;
+  S.outfit=index; save(); renderExp(); renderOutfits(); say(`${activeOutfit().name}!`);
+});
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&!$("outfitSheet").hidden) closeOutfits(); });
 
 // ---- week
 const HEART = '<svg class="heart" viewBox="0 0 16 16"><path fill="currentColor" d="M8 14s-6-3.7-6-8a3.2 3.2 0 0 1 6-1.6A3.2 3.2 0 0 1 14 6c0 4.3-6 8-6 8z"/></svg>';
+function weekStats(start){
+  const liftDays = new Set(), days=[];
+  for(let i=0;i<7;i++){
+    const d=new Date(start); d.setDate(start.getDate()+i); days.push(d);
+    const lift=S.lifts[key(d)];
+    if(lift) liftDays.add(lift);
+  }
+  return {liftDays,cardio:days.filter(d=>S.cardio.includes(key(d))).length};
+}
+function weekQualifies(start){
+  const stats=weekStats(start);
+  return stats.liftDays.has("d1")&&stats.liftDays.has("d2")&&stats.cardio>=4;
+}
+function streakCount(){
+  const cursor=new Date(monday); let streak=0;
+  if(!weekQualifies(cursor)) cursor.setDate(cursor.getDate()-7);
+  while(weekQualifies(cursor)){ streak++; cursor.setDate(cursor.getDate()-7); }
+  return streak;
+}
 function renderWeek(){
   const f = d => d.toLocaleDateString(undefined,{month:"short",day:"numeric"});
+  const stats=weekStats(monday);
   $("weekRange").textContent = `${f(WEEK[0])} – ${f(WEEK[6])}`;
+  $("streak").textContent = `🔥 ${streakCount()}-week streak`;
+  $("weekHint").textContent = `Goal: 2 lift days + 4 cardio sessions. This week: ${stats.liftDays.size}/2 lift days, ${Math.min(stats.cardio,4)}/4 cardio.`;
   $("days").innerHTML = WEEK.map(d=>{
     const k=key(d), lift=S.lifts[k], c=S.cardio.includes(k);
     return `<button type="button" class="day${k===TODAY?" today":""}" data-k="${k}" aria-label="${d.toLocaleDateString(undefined,{weekday:"long"})}${lift?", "+ROUTINE[lift].name+" day done":""}${c?", cardio done":""}">
@@ -445,20 +572,22 @@ const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&g
 function renderList(){
   const r = ROUTINE[S.tab], d = S.done[S.tab];
   const doneToday = S.lifts[TODAY]===S.tab;
+  const {all: totalSets, done: completedSets} = totals();
   $("list").innerHTML = r.ex.map(e=>{
     const sets = d[e.id]||[], all = sets.filter(Boolean).length===e.sets;
     const chosen = S.pick[e.id];
+    const last = S.last[e.id];
     return `<div class="ex${all?" done":""}" data-id="${e.id}">
       <div class="ex-top">
         <div><h3>${esc(chosen||e.name)}</h3><div class="scheme">${e.sets} sets · ${REPS}</div></div>
-        <label class="wt"><input id="w-${e.id}" inputmode="decimal" placeholder="—" value="${esc(S.w[e.id]||"")}" aria-label="${esc(e.name)} weight"><span>lb</span></label>
+        <div class="wt-wrap"><label class="wt"><input id="w-${e.id}" inputmode="decimal" placeholder="—" value="${esc(S.w[e.id]||"")}" aria-label="${esc(e.name)} weight"><span>lb</span></label>${last!==undefined&&last!==""?`<button type="button" class="last" data-last="${esc(last)}" aria-label="Use last ${esc(last)} pounds for ${esc(e.name)}">Last: ${esc(last)} lb</button>`:""}</div>
       </div>
       ${e.pick?`<div class="chips">${PICKS[e.pick].map(p=>`<button type="button" class="chip" data-pick="${esc(p)}" aria-pressed="${chosen===p}">${esc(p)}</button>`).join("")}</div>`:""}
       <div class="sets">${[...Array(e.sets)].map((_,i)=>`<button type="button" class="set${sets[i]?" on":""}" data-set="${i}" aria-pressed="${!!sets[i]}" aria-label="Set ${i+1}">${sets[i]?"✓":i+1}</button>`).join("")}</div>
     </div>`;
   }).join("") + (doneToday
     ? `<p class="finished">${r.name} day saved for today ♡</p>`
-    : `<button type="button" class="btn finish" id="finish">Finish workout</button>`);
+    : `<button type="button" class="btn finish" id="finish"${completedSets<totalSets?" disabled":""}>${completedSets<totalSets?`Complete ${totalSets-completedSets} more set${totalSets-completedSets===1?"":"s"} to finish`:"Finish workout"}</button>`);
 }
 $("list").addEventListener("click",e=>{
   const card = e.target.closest(".ex");
@@ -479,12 +608,26 @@ $("list").addEventListener("click",e=>{
       else { stopTimer(); say("Last set done! Tap Finish ♡","cheer"); }
     }
   }
+  const lastBtn = e.target.closest(".last");
+  if(lastBtn){
+    const input=$("w-"+id);
+    input.value=lastBtn.dataset.last; S.w[id]=input.value; save(); input.focus();
+  }
 });
 $("list").addEventListener("input",e=>{ if(e.target.id?.startsWith("w-")){ S.w[e.target.id.slice(2)] = e.target.value; save(); }});
 
 function finish(){
+  const {all,done} = totals();
+  if(done<all || S.lifts[TODAY]) return;
+  const r = ROUTINE[S.tab];
+  const prs = r.ex.filter(e=>{
+    const current=Number(S.w[e.id]), previous=Number(S.last[e.id]);
+    return Number.isFinite(current)&&Number.isFinite(previous)&&current>previous;
+  });
+  r.ex.forEach(e=>{ if(String(S.w[e.id]||"").trim()) S.last[e.id]=S.w[e.id]; });
   S.lifts[TODAY]=S.tab; S.total++; save(); stopTimer();
-  renderList(); renderExp(); renderWeek(); say(pick(LINES.done),"cheer");
+  renderList(); renderExp(); renderWeek(); say(prs.length?"New PR! Bowie is impressed!":pick(LINES.done),"cheer");
+  if(prs.length) critterCheer("New PR! Bowie is impressed!");
 }
 
 // ---- sound
@@ -599,13 +742,13 @@ function boing(){
   g.gain.setValueAtTime(.0001,t); g.gain.exponentialRampToValueAtTime(.08,t+.02); g.gain.exponentialRampToValueAtTime(.0001,t+.2);
   o.connect(g).connect(actx.destination); o.start(t); o.stop(t+.22);
 }
-function critterCheer(){
+function critterCheer(message=""){
   cheerTimers.forEach(clearTimeout); cheerTimers=[];
   const layer=$("cheerLayer"); layer.innerHTML="";
   const c = pick(CRITTERS);
   let i; do{ i=Math.floor(Math.random()*COMPLIMENTS.length); }while(i===lastC); lastC=i;
   const card=document.createElement("div"); card.className="cheer-card";
-  card.innerHTML=`<div class="cheer-bubble"><small>${c.name.toUpperCase()} · ${pick(TAGS)}</small>${esc(COMPLIMENTS[i])}</div>
+  card.innerHTML=`<div class="cheer-bubble"><small>${c.name.toUpperCase()} · ${message?"NEW PR!":pick(TAGS)}</small>${esc(message||COMPLIMENTS[i])}</div>
     <div class="critter"><span class="spark">✦</span><span class="spark">✧</span><span class="spark">✦</span></div>`;
   const cv=document.createElement("canvas"); cv.width=cv.height=80;
   const draw=()=>{ try{ cv.getContext("2d").drawImage(c.img,0,0,80,80); }catch(e){} };
@@ -618,6 +761,7 @@ function critterCheer(){
 }
 
 // ---- boot
+renderOutfits();
 renderTabs(); renderList(); renderWeek(); renderExp();
 if(S.lifts[TODAY]) say("You already trained today ♡","cheer");
 else say(`Bowie here! ${ROUTINE[S.tab].name} day, let's go`);
